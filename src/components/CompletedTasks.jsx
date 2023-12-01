@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { tasksList, removeTask, completeTask } from "../reducers/taskSlice";
 import "./Tasks.css";
 
-export const CompletedTasks = () => {
+export const CompletedTasks = ({ task }) => {
   const dispatch = useDispatch();
   const tasks = useSelector(tasksList);
 
@@ -16,15 +16,14 @@ export const CompletedTasks = () => {
     dispatch(completeTask(id));
   };
 
-  // Filter completed tasks
-  const completedTaskList = tasks.filter((task) => task.isComplete);
+  
 
   
 
   
   return (
     <aside className="taskList">
-        {completedTaskList.map((task) => (
+       
             <div key={task.id} className="taskItem completedTask">
               <p className="taskHeader">{task.text}</p>
 

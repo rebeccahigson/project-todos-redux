@@ -32,10 +32,7 @@ export const tasksSlice = createSlice({
       }
   },
 
-  // Count tasks
-  countTask:(state) => {
-    return state.items.length;
-  },
+ 
 
   // Count uncompleted tasks FIX
   countUncompletedTasks: (state) => {
