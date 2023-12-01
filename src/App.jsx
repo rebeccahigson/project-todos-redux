@@ -1,3 +1,13 @@
+import { NavBar } from "./components/NavBar";
+import { TaskContainer } from "./components/TaskContainer";
+import { Form } from "./components/Form";
+
 export const App = () => {
-  return <div>Find me in App.jsx!</div>;
+  return(
+  <main>
+    <NavBar />
+    
+    <TaskContainer />
+  </main>
+  )
 };
