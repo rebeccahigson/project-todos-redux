@@ -1,6 +1,4 @@
-import { useSelector } from "react-redux";
-import { countTask } from "../reducers/taskSlice";
-import "./Tasks.css";
+
 
 export const NavBar = () => {
     //const taskCount = useSelector(countTask);
@@ -8,7 +6,7 @@ export const NavBar = () => {
 
   return (
     <>
-    <nav>
+    <nav className="mainNav">
         <div>
             <h3>My tasks</h3>
             <div>

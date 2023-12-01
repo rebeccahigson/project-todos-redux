@@ -1,44 +1,42 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { addTask } from "../reducers/taskSlice";
-import "./Tasks.css";
+import { addTask, tasksList } from "../reducers/taskSlice";
+
 
 export const Form = () => {
-    const dispatch = useDispatch();
-    const [newTask, setNewTask] = useState("");
-    //const tasks = useSelector(taskList);
+const dispatch = useDispatch();
+  const [newTask, setNewTask] = useState("");
 
-    // Add task
-    const handleAddTask = () => {
-        if (newTask.trim() !== "") {
-            dispatch(addTask({id: Date.now(), text: newTask, complete: false}));
-            setNewTask("");
-        }
-    };
+  // Add note
+  const handleAddTask = () => {
+    if (newTask.trim() !== "") {
+      dispatch(addTask({ id: Date.now(), text: newTask }));
+      setNewTask("");
+    }
+  };
 
-    // Add task on "enter"
-    const handleKeyDown = (event) => {
-        if (event.key === "Enter") {
-            handleAddTask();
-        }
-    };
+  // Add note on "Enter"
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleAddTask();
+    }
+  };
 
   return (
-    <article className="wrapper">
-        <h1>Write it down so you won't forget!</h1>
-        <input 
-        type="text"
-        placeholder="What do you need to do?"
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
-        onKeyDown={handleKeyDown} 
+    <form>
+       <input
+          type="text"
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <button 
-        className="addButton"
-        onClick={handleAddTask}
+        className="addButton" 
+        onClick={handleAddTask} 
+        disabled={newTask.trim() === ""}
         >
-            Add task
+          Add task
         </button>
-    </article>
+    </form>
   )
 }

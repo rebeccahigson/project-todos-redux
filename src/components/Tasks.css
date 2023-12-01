@@ -1,24 +1,59 @@
-.toDoList{
+.wrapper{
+  display:flex;
+}
 
+.taskList{
+  display:flex;
+  flex-wrap: wrap;
+  margin:10px 0 50px 0;
+  }
+
+  .mainNav{
+    background-color:#000;
+    width:100%;
+    text-align:center;
+    color:#fff;
   }
 
 
-  .note{
-    /*width:25%;*/
-    width:200px;
-    height:200px;
+  .toDoContainer{
+
+  }
+  .complete{
+
+  }
+
+  .taskItem{
+    width:250px;
+    height:250px;
     color:#000;
     position:relative;
-    padding:10px;
+    padding:25px;
     margin:5px;
     box-shadow: 2px 2px 4px #ddd;
+    display:flex;
+    flex-direction:column;
   }
 
-  .completed-Note{
+
+  .removeButtonContainer{
+    position:absolute;
+    bottom:15px;
+    left:15px;
+  }
+
+  .completeContainer{
+    position:absolute;
+    bottom:20px;
+    right:15px;
+  }
+
+
+  .completedTask{
     background-color:lightgreen;
   }
 
-  .toDo-Note{
+  .toDoTask{
     background-color:yellow;
   }
 
@@ -26,8 +61,9 @@
     display:flex;
   }
 
-  .note-h1{
-    margin-left:10px;
+  .taskHeader{
+    margin:0 0 20px 0;
+    font-size:18px;
   }
 
   button{
@@ -38,9 +74,20 @@
     display:block;
     margin:30px 0;
   }
+  
   .removeButton{
+    padding:0px;
+    background-color:inherit;
+    border:none;
+    font-size:18px;
+    text-decoration:underline;
+    cursor:pointer;
+    opacity:0.5;
   }
-
+  .removeButton:hover{
+    text-decoration:none;
+    opacity:1;
+  }
   input{
     border:none;
   }

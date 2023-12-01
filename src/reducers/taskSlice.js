@@ -9,41 +9,38 @@ const initialState = {
   ]
 }
 
-const taskSlice = createSlice({
+
+export const tasksSlice = createSlice({
   name: "tasks",
   initialState,
   reducers: {
-  // add task
-    addTask: (state, { payload }) => {
-      state.items.push(payload);
+    // Add task
+    addTask: (state, action) => {
+      state.items.push(action.payload);
     },
 
-  // remove task
-    removeTask:(state, { payload }) => {
-      state.items = state.items.filter((task) => task.id !== payload);
+    // Remove task
+    removeTask: (state, action) => {
+      state.items = state.items.filter((task) => task.id !== action.payload);
     },
 
-  // complete task
-  completeTask: (state, { payload }) => {
+    // Complete task
+    completeTask: (state, { payload }) => {
     const task = state.items.find((t) => t.id === payload);
     if (task) {
       task.complete = !task.complete;
     }
   },
 
-  // filter task
-  filterTask:(state) => {
-    state.items = state.items.filter((task) => task.complete);
-  },
-
-  // count tasks
+  // Count tasks
   countTask:(state) => {
     return state.tasks.items.length;
   }
-}
+  },
 });
 
-export const { addTask, removeTask, completeTask, filterTask, countTask } = taskSlice.actions;
-export const taskList = (state) => state.tasks.items;
+export const { addTask, removeTask, completeTask, countTask } = tasksSlice.actions;
 
-export default taskSlice.reducer;
+export const tasksList = (state) => state.tasks.items;
+
+export default tasksSlice.reducer;

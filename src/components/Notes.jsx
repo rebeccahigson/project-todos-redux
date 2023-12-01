@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { tasksList, removeTask } from "../reducers/taskSlice";
 import "./Tasks.css";
 
-export const CompletedContainer = () => {
+
+export const Notes = () => {
   const dispatch = useDispatch();
   const tasks = useSelector(tasksList);
 
@@ -15,11 +17,11 @@ export const CompletedContainer = () => {
   const handleCompleteTask = () => {
 
   };
-  
+
   return (
-    <aside>
-        {tasks.map((task) => (
-            <div key={task.id} className="taskItem completedTask">
+    <section className="taskList">
+          {tasks.map((task) => (
+            <div key={task.id} className="taskItem toDoTask">
               <p className="taskHeader">{task.text}</p>
 
               <div className="completeContainer">
@@ -36,6 +38,6 @@ export const CompletedContainer = () => {
               </div>
             </div>
           ))}
-    </aside>
-  )
-}
+    </section>
+  );
+};
