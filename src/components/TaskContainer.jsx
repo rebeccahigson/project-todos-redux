@@ -1,6 +1,6 @@
-import { Notes } from "./Notes"
+import { Tasks } from "./Tasks"
 import { Form } from "./Form"
-import { CompletedContainer } from "./CompletedContainer"
+import { CompletedTasks } from "./CompletedTasks"
 
 
 
@@ -11,11 +11,11 @@ export const TaskContainer = () => {
       <Form />
       <div className="wrapper">
         <article className="toDoContainer">
-          <Notes />
+          <Tasks />
         </article>
 
         <aside className="complete">
-          <CompletedContainer />
+          <CompletedTasks />
         </aside>
       </div>
     </section>

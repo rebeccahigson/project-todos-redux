@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { tasksList, removeTask } from "../reducers/taskSlice";
+import { tasksList, removeTask, completeTask } from "../reducers/taskSlice";
 import "./Tasks.css";
 
-
-export const Notes = () => {
+export const CompletedTasks = () => {
   const dispatch = useDispatch();
   const tasks = useSelector(tasksList);
 
@@ -14,18 +12,27 @@ export const Notes = () => {
   };
 
   // Complete task
-  const handleCompleteTask = () => {
-
+  const handleCompleteTask = (id) => {
+    dispatch(completeTask(id));
   };
 
+  // Filter completed tasks
+  const completedTaskList = tasks.filter((task) => task.isComplete);
+
+  
+
+  
   return (
-    <section className="taskList">
-          {tasks.map((task) => (
-            <div key={task.id} className="taskItem toDoTask">
+    <aside className="taskList">
+        {completedTaskList.map((task) => (
+            <div key={task.id} className="taskItem completedTask">
               <p className="taskHeader">{task.text}</p>
 
               <div className="completeContainer">
-                <input type="checkbox"/>
+                <input 
+                type="checkbox"
+                checked={task.isComplete}
+                onChange={() => handleCompleteTask(task.id)}/>
               </div>
 
               <div className="removeButtonContainer">
@@ -38,6 +45,6 @@ export const Notes = () => {
               </div>
             </div>
           ))}
-    </section>
-  );
-};
+    </aside>
+  )
+}
