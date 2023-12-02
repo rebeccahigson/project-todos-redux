@@ -60,7 +60,6 @@ form{
   margin-top:50px;
   display:flex;
   flex-direction: column;
-
 }
 input{
   border:none;
@@ -195,6 +194,11 @@ button{
     width:220px;
     height:250px;
     
+  }
+}
+@media screen and (max-width: 500px) {
+  form{
+    width:90%px;
   }
 }
  
