@@ -19,25 +19,28 @@ export const TaskItem = ({ task }) => {
   };
 
 
-
   return (
     <>
       <div key={task.id} className={`taskItem ${task.isComplete !== true ? "toDoTask" : "completedTask"}`}
       >
       <p className="taskHeader">{task.text}</p>
 
-      <div className="completeContainer">
+      <div className="checkContainer">
         <input 
         type="checkbox"
+        name="completeTask"
         checked={task.isComplete}
         onChange={() => handleCompleteTask(task.id)}/>
-        </div>
+
+        <label>
+          Complete
+        </label>
+      </div>
 
       <div className="removeButtonContainer">
         <button
-          className="removeButton"
-          onClick={() => handleRemoveTask(task.id)}
-          >
+        className="removeButton"
+        onClick={() => handleRemoveTask(task.id)}>
             Remove
           </button>
         </div>

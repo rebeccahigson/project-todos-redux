@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { addTask, tasksList } from "../reducers/taskSlice";
+import { addTask } from "../reducers/taskSlice";
 
 
 export const Form = () => {
@@ -25,16 +25,15 @@ const dispatch = useDispatch();
   return (
     <form>
        <input
-          type="text"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-          onKeyDown={handleKeyDown}
-        />
+        type="text"
+        value={newTask}
+        onChange={(e) => setNewTask(e.target.value)}
+        onKeyDown={handleKeyDown}/>
+
         <button 
         className="addButton" 
         onClick={handleAddTask} 
-        disabled={newTask.trim() === ""}
-        >
+        disabled={newTask.trim() === ""}>
           Add task
         </button>
     </form>

@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   items: [
-    { id: 1, text: 'Watch video on actions & reducers', isComplete:   true },
-    { id: 2, text: 'Follow redux code along', isComplete: true },
-    { id: 3, text: 'Fork weekly assignment', isComplete: true },
-    { id: 4, text: 'Create a todo app', isComplete: false },
+    { id: 1, text: 'Buy christmas presents', isComplete:   false },
+    { id: 2, text: 'Go food shopping', isComplete: true },
+    { id: 3, text: 'Finish final assignment', isComplete: false },
+    { id: 4, text: 'Create a todo app', isComplete: true },
   ]
 }
 
@@ -34,11 +34,7 @@ export const tasksSlice = createSlice({
 
  
 
-  // Count uncompleted tasks FIX
-  countUncompletedTasks: (state) => {
-    const uncompletedTasks = state.items.filter((task) => !task.isComplete);
-    return uncompletedTasks.length;
-  },
+  
   },
 });
 
