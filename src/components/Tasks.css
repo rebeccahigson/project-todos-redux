@@ -198,7 +198,7 @@ button{
 }
 @media screen and (max-width: 500px) {
   form{
-    width:90%px;
+    width:90%;
   }
 }
  
